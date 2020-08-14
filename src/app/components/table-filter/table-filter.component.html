@@ -1,0 +1,14 @@
+<div class="table-filter-container">
+  <input class="table-search-input" type="text" placeholder="Пошук..." #tableSearchInput
+          (keyup)="onInputChange(tableSearchInput.value)">
+
+  <mat-radio-group (change)="onRadioGroupChange($event, tableSearchInput.value)">
+    <mat-radio-button value="title" [checked]="true">Марка</mat-radio-button>
+    <mat-radio-button value="fuelName">Об'єм двигуна</mat-radio-button>
+    <mat-radio-button value="year">Рік</mat-radio-button>
+    <mat-radio-button value="race">Пробіг</mat-radio-button>
+    <mat-radio-button value="locationCityName">Місто</mat-radio-button>
+    <mat-radio-button value="addDate">Дата</mat-radio-button>
+    <mat-radio-button value="uah">Ціна</mat-radio-button>
+  </mat-radio-group>
+</div>

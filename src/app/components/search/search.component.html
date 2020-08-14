@@ -1,0 +1,30 @@
+<div class="container">
+
+  <form>
+    <!-- Brand field -->
+    <mat-form-field>
+      <input type="text" placeholder="Марка" matInput [formControl]="brandControl"
+             [matAutocomplete]="carBrandAutocomplete">
+      <mat-autocomplete #carBrandAutocomplete="matAutocomplete" (optionSelected)="getModels($event.option.value)"
+                        [displayWith]="getDisplayFn()">
+        <mat-option *ngFor="let brand of filteredBrands | async" [value]="brand">
+          {{brand.name}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+
+    <!-- Model field -->
+    <mat-form-field>
+      <input type="text" placeholder="Модель" matInput [formControl]="modelControl"
+             [matAutocomplete]="carModelAutocomplete">
+      <mat-autocomplete #carModelAutocomplete="matAutocomplete" [displayWith]="getDisplayFn()">
+        <mat-option *ngFor="let model of filteredModels | async" [value]="model">
+          {{model.name}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" (click)="search()">Пошук</button>
+  </form>
+
+</div>

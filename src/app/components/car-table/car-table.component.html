@@ -1,0 +1,30 @@
+<div>
+  <div class="currency-selector">
+    <mat-button-toggle-group (valueChange)="handleCurrencyChange($event)">
+      <mat-button-toggle value="uah">₴</mat-button-toggle>
+      <mat-button-toggle value="usd">$</mat-button-toggle>
+      <mat-button-toggle value="eur">€</mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+
+  <table id="cars_table">
+    <tr>
+      <th>Марка автомобіля</th>
+      <th>Об'єм двигуна</th>
+      <th>Рік</th>
+      <th>Пробіг</th>
+      <th>Місто</th>
+      <th>Дата оголошення</th>
+      <th>Ціна</th>
+    </tr>
+    <tr *ngFor="let carAd of carsAds">
+      <td>{{carAd.title}}</td>
+      <td>{{carAd.fuelName}}</td>
+      <td>{{carAd.year}}</td>
+      <td>{{carAd.race}}</td>
+      <td>{{carAd.locationCityName}}</td>
+      <td>{{carAd.addDate}}</td>
+      <td>{{carAd[currency].toLocaleString()}}</td>
+    </tr>
+  </table>
+</div>

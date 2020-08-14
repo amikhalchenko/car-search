@@ -1,0 +1,18 @@
+<div>
+
+  <div class="search-container">
+    <app-search *ngIf="!isFilterShowed" (onSearchResults)="handleSearchResults($event)"></app-search>
+    <app-table-filter *ngIf="isFilterShowed" (searchChange)="onFilterResultChange($event)"></app-table-filter>
+
+    <mat-icon [matMenuTriggerFor]="menu">menu</mat-icon>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item *ngIf="!isFilterShowed" (click)="isFilterShowed = !isFilterShowed">Пошук по таблиці</button>
+      <button mat-menu-item *ngIf="isFilterShowed" (click)="isFilterShowed = !isFilterShowed">Повернутися до пошуку автомобілів</button>
+      <button mat-menu-item (click)="saveTableAsExcel()">Зберегти таблицю</button>
+    </mat-menu>
+  </div>
+
+  <app-car-table [carsAds]="filteredResults"></app-car-table>
+  <app-average-price [carAds]="searchResults"></app-average-price>
+
+</div>

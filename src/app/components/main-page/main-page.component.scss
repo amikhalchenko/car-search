@@ -1,0 +1,15 @@
+.search-container {
+  display: flex;
+  justify-content: flex-end;
+
+  :first-child {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .mat-icon {
+    cursor: pointer;
+    font-size: 36px;
+    padding: 21px;
+  }
+}
