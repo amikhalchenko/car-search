@@ -34,7 +34,7 @@ export class CarApiService {
    */
   fetchModels(categoryId, markId): Observable<any> {
     return this.http.get(
-      `http://api.auto.ria.com/categories/${categoryId}/marks/${markId}/models?api_key=${this.API_KEY}`
+      `https://api.auto.ria.com/categories/${categoryId}/marks/${markId}/models?api_key=${this.API_KEY}`
     );
   }
 
